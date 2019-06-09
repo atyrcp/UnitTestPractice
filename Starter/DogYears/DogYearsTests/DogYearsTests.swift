@@ -26,6 +26,26 @@ class DogYearsTests: XCTestCase {
         XCTAssert(result == 19, "fail in testAdd function")
     }
 
+    func testMinus() {
+        
+        let result = calculator.evaluate(op: "-", arg1: 27, arg2: 3)
+        
+        XCTAssert(result == 24, "fail in testMinus function")
+    }
+    
+    func testResult() {
+        let result = calculator.evaluate(op: "+", arg1: 3, arg2: 3)
+        let resutl2 = calculator.result
+        XCTAssert(result == resutl2, "fail in testResult function")
+    }
+    
+    func testClear() {
+        calculator.clear()
+        let result = calculator.result
+        XCTAssert(result == 0.0, "fail in testClear function, clear function not working correctly")
+        
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
