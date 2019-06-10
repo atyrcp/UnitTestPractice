@@ -12,6 +12,7 @@ import XCTest
 class DogYearsTests: XCTestCase {
 
     let calculator = Calculator()
+    var responseData: Data?
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -43,7 +44,55 @@ class DogYearsTests: XCTestCase {
         calculator.clear()
         let result = calculator.result
         XCTAssert(result == 0.0, "fail in testClear function, clear function not working correctly")
-        
+    }
+    
+    func testTextFromServer1() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        XCTAssertNotNil(storyboard, "can not instantiate the storyboard")
+        guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "InformationView") as? InfoViewController else {
+            XCTAssert(false, "fail to instantiate the viewcontroller")
+            return
+        }
+        _ = viewcontroller.view
+        guard let text1 = viewcontroller.txtInfo.text else {
+            XCTAssert(false, "text is nil")
+            return
+        }
+
+        viewcontroller.loadContent()
+        let pred = NSPredicate(format: "text != %@", text1)
+        let expect = expectation(for: pred, evaluatedWith: viewcontroller.txtInfo, handler: nil)
+        let result = XCTWaiter.wait(for: [expect], timeout: 5)
+
+        XCTAssert(result == XCTWaiter.Result.completed, "text did not change after loading the content")
+    }
+    
+    func testTextFromServer2() {
+        let url = "https://raw.githubusercontent.com/FahimF/Test/master/DogYears-Info.rtf"
+        HTTPClient.shared.get(url: url) { (data, error) in
+            self.responseData = data
+        }
+        let pred = NSPredicate(format: "responseData != nil")
+        let expect = expectation(for: pred, evaluatedWith: self, handler: nil)
+        let result = XCTWaiter.wait(for: [expect], timeout: 5)
+        if result == XCTWaiter.Result.completed {
+            XCTAssertNotNil(responseData, "data is nil")
+        } else {
+            XCTAssert(false, "did not finish the connection")
+        }
+
+    }
+    
+    func testTextFromServer3() {
+        let url = "https://raw.githubusercontent.com/FahimF/Test/master/DogYears-Info.rtf"
+        let expect = self.expectation(description: "url connection with \(url)")
+        HTTPClient.shared.get(url: url) { (data, error) in
+            XCTAssertNotNil(data, "data is nil")
+            self.responseData = data
+            expect.fulfill()
+        }
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertNotNil(responseData, "data is nil")
     }
     
     func testPerformanceExample() {

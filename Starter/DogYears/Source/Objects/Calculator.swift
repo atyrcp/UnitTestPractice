@@ -50,7 +50,6 @@ class Calculator {
 	private (set) var history = "History: "
 	private (set) var canConvert = true
     private (set) var result = 0.0
-
     
 	var lastOp: Op? {
 		return opStack.last

@@ -29,7 +29,7 @@
 import UIKit
 
 class InfoViewController: UIViewController {
-	@IBOutlet private weak var txtInfo: UITextView!
+	@IBOutlet weak var txtInfo: UITextView!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
