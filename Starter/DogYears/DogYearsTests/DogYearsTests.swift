@@ -95,12 +95,6 @@ class DogYearsTests: XCTestCase {
         XCTAssertNotNil(responseData, "data is nil")
     }
     
-    func testNonepass() {
-        let a = "a"
-        let b = a as? Int
-        XCTAssert(b is String, "b is not string")
-    }
-    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
