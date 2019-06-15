@@ -10,6 +10,8 @@
 		93171D5222ACB8B60054EDEE /* DogYearsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93171D5122ACB8B60054EDEE /* DogYearsTests.swift */; };
 		93D9500122B4ECCF00064871 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D9500022B4ECCF00064871 /* URLSessionProtocol.swift */; };
 		93D9500322B4EDEE00064871 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D9500222B4EDEE00064871 /* URLSessionDataTaskProtocol.swift */; };
+		93D9500622B505EA00064871 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D9500422B505AC00064871 /* MockSession.swift */; };
+		93EE689722B5091700D672BF /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EE689622B5091700D672BF /* MockURLSessionDataTask.swift */; };
 		DD095FC71FA08EA200439546 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD095FC61FA08EA200439546 /* Type.swift */; };
 		DD0FC24C1F973170003495E0 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0FC24B1F973170003495E0 /* Calculator.swift */; };
 		DD0FC24E1F974FB8003495E0 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0FC24D1F974FB8003495E0 /* RoundedButton.swift */; };
@@ -53,6 +55,8 @@
 		93171D5322ACB8B60054EDEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93D9500022B4ECCF00064871 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		93D9500222B4EDEE00064871 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
+		93D9500422B505AC00064871 /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockSession.swift; path = ../../DogYearsTests/MockSession.swift; sourceTree = "<group>"; };
+		93EE689622B5091700D672BF /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		DD095FC61FA08EA200439546 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		DD0FC24B1F973170003495E0 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		DD0FC24D1F974FB8003495E0 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 				DD2221441FB35249000D86F9 /* HTTPClient.swift */,
 				93D9500022B4ECCF00064871 /* URLSessionProtocol.swift */,
 				93D9500222B4EDEE00064871 /* URLSessionDataTaskProtocol.swift */,
+				93D9500422B505AC00064871 /* MockSession.swift */,
+				93EE689622B5091700D672BF /* MockURLSessionDataTask.swift */,
 				DD7F8B171F96FAEF00456B70 /* MenuItem.swift */,
 				DD5CAC381F96FD3F00631B7E /* Menu.swift */,
 				DD0FC24B1F973170003495E0 /* Calculator.swift */,
@@ -319,6 +325,7 @@
 				DD5CAC441F970E0F00631B7E /* Utility.swift in Sources */,
 				DD5CAC391F96FD3F00631B7E /* Menu.swift in Sources */,
 				DD7F8B1B1F96FB7E00456B70 /* MenuCell.swift in Sources */,
+				93D9500622B505EA00064871 /* MockSession.swift in Sources */,
 				DD0FC24C1F973170003495E0 /* Calculator.swift in Sources */,
 				DD0FC2501F97516F003495E0 /* RoundedLabel.swift in Sources */,
 				DD095FC71FA08EA200439546 /* Type.swift in Sources */,
@@ -335,6 +342,7 @@
 				DD9E69DD1FA1C2AD00388647 /* ThemeCell.swift in Sources */,
 				DD9E69E11FA1E06D00388647 /* UIColor-Extras.swift in Sources */,
 				DD5CAC3F1F970AD600631B7E /* SettingsViewController.swift in Sources */,
+				93EE689722B5091700D672BF /* MockURLSessionDataTask.swift in Sources */,
 				93D9500322B4EDEE00064871 /* URLSessionDataTaskProtocol.swift in Sources */,
 				DD0FC2521F977F3B003495E0 /* Double-Extras.swift in Sources */,
 			);

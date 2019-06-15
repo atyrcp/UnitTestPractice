@@ -67,9 +67,38 @@ class DogYearsTests: XCTestCase {
         XCTAssert(result == XCTWaiter.Result.completed, "text did not change after loading the content")
     }
     
-    func testTextFromServer2() {
+//    func testTextFromServer2() {
+//        let url = "https://raw.githubusercontent.com/FahimF/Test/master/DogYears-Info.rtf"
+//        HTTPClient.shared.get(url: url) { (data, error) in
+//            self.responseData = data
+//        }
+//        let pred = NSPredicate(format: "responseData != nil")
+//        let expect = expectation(for: pred, evaluatedWith: self, handler: nil)
+//        let result = XCTWaiter.wait(for: [expect], timeout: 5)
+//        if result == XCTWaiter.Result.completed {
+//            XCTAssertNotNil(responseData, "data is nil")
+//        } else {
+//            XCTAssert(false, "did not finish the connection")
+//        }
+//    }
+//
+//    func testTextFromServer3() {
+//        let url = "https://raw.githubusercontent.com/FahimF/Test/master/DogYears-Info.rtf"
+//        let expect = self.expectation(description: "url connection with \(url)")
+//        HTTPClient.shared.get(url: url) { (data, error) in
+//            XCTAssertNotNil(data, "data is nil")
+//            self.responseData = data
+//            expect.fulfill()
+//        }
+//        waitForExpectations(timeout: 5, handler: nil)
+//        XCTAssertNotNil(responseData, "data is nil")
+//    }
+    
+    func testTextFromServer4UsingMockObject() {
         let url = "https://raw.githubusercontent.com/FahimF/Test/master/DogYears-Info.rtf"
-        HTTPClient.shared.get(url: url) { (data, error) in
+        let session = MockSession()
+        let client = HTTPClient(session: session)
+        client.get(url: url) { (data, error) in
             self.responseData = data
         }
         let pred = NSPredicate(format: "responseData != nil")
@@ -80,19 +109,6 @@ class DogYearsTests: XCTestCase {
         } else {
             XCTAssert(false, "did not finish the connection")
         }
-
-    }
-    
-    func testTextFromServer3() {
-        let url = "https://raw.githubusercontent.com/FahimF/Test/master/DogYears-Info.rtf"
-        let expect = self.expectation(description: "url connection with \(url)")
-        HTTPClient.shared.get(url: url) { (data, error) in
-            XCTAssertNotNil(data, "data is nil")
-            self.responseData = data
-            expect.fulfill()
-        }
-        waitForExpectations(timeout: 5, handler: nil)
-        XCTAssertNotNil(responseData, "data is nil")
     }
     
     func testPerformanceExample() {
