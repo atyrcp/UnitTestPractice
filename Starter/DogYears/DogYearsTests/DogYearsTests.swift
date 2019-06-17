@@ -111,6 +111,18 @@ class DogYearsTests: XCTestCase {
         }
     }
     
+    func testSettingsViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let viewcontroller = storyboard.instantiateViewController(withIdentifier: "SettingsView") as? SettingsViewController else {
+            XCTAssert(false, "can not instantiate viewcontroller")
+            return
+        }
+        let view = viewcontroller.view
+        XCTAssertNotNil(view, "cant create the view of SettingsViewController")
+        
+        
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

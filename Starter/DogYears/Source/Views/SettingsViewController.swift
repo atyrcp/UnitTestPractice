@@ -31,7 +31,7 @@ import UIKit
 class SettingsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 	@IBOutlet private weak var collectionView: UICollectionView!
 	private var themes = Themes()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 		// Configure collection view
@@ -44,7 +44,7 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
 		let index = IndexPath(row: selection, section: 0)
 		collectionView.selectItem(at: index, animated: false, scrollPosition: UICollectionViewScrollPosition.top)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -53,7 +53,7 @@ class SettingsViewController: UIViewController, UICollectionViewDelegate, UIColl
 	func collectionView(_ cv: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return themes.count
 	}
-
+    
 	func collectionView(_ cv: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = cv.dequeueReusableCell(withReuseIdentifier: "ThemeCell", for: indexPath) as! ThemeCell
 		if let thm = themes.themeAt(row: indexPath.row) {
