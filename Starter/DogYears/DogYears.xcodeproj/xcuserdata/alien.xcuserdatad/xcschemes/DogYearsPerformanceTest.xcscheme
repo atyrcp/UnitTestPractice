@@ -49,6 +49,16 @@
                ReferencedContainer = "container:DogYears.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "93B1914F22BE50AE00E107F3"
+               BuildableName = "DogYearsUITests.xctest"
+               BlueprintName = "DogYearsUITests"
+               ReferencedContainer = "container:DogYears.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
