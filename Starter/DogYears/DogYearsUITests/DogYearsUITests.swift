@@ -10,6 +10,8 @@ import XCTest
 
 class DogYearsUITests: XCTestCase {
 
+    private var application: XCUIApplication!
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -17,7 +19,9 @@ class DogYearsUITests: XCTestCase {
         continueAfterFailure = false
 
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+        application = XCUIApplication()
+        application.launch()
+//        XCUIApplication().launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
@@ -28,36 +32,13 @@ class DogYearsUITests: XCTestCase {
 
     func testExample() {
         
-        let app = XCUIApplication()
-        let menuButton = app.navigationBars["Master"].buttons["Menu"]
-        menuButton.tap()
+        let navigationBar1 = application.navigationBars["Master"]
+        let button1 = navigationBar1.buttons["Menu"]
+        button1.tap()
+        XCTAssertFalse(navigationBar1.exists, "why the old one is still here?")
+        let navigationBar2 = application.navigationBars["Menu"]
+        XCTAssert(navigationBar2.exists, "segue did not happened")
         
-        let tablesQuery2 = app.tables
-        let calculatorStaticText = tablesQuery2/*@START_MENU_TOKEN@*/.staticTexts["Calculator"]/*[[".cells.staticTexts[\"Calculator\"]",".staticTexts[\"Calculator\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        calculatorStaticText.tap()
-        app.buttons["8"].tap()
-        app.buttons["3"].tap()
-        app.buttons["×"].tap()
-        app.buttons["6"].tap()
-        app.buttons["="].tap()
-        menuButton.tap()
-        calculatorStaticText.tap()
-        menuButton.tap()
-        
-        let tablesQuery = tablesQuery2
-        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Information"]/*[[".cells.staticTexts[\"Information\"]",".staticTexts[\"Information\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        menuButton.tap()
-        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Settings"]/*[[".cells.staticTexts[\"Settings\"]",".staticTexts[\"Settings\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
-        let cellsQuery = app.collectionViews.cells
-        cellsQuery.otherElements.containing(.staticText, identifier:"Night").staticTexts["6"].tap()
-        
-        let dayElementsQuery = cellsQuery.otherElements.containing(.staticText, identifier:"Day")
-        dayElementsQuery.buttons["human"].tap()
-        dayElementsQuery.staticTexts["◀︎"].tap()
-        app.navigationBars["Settings"].buttons["Menu"].tap()
-        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["About"]/*[[".cells.staticTexts[\"About\"]",".staticTexts[\"About\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.navigationBars["About"].buttons["Menu"].tap()
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
