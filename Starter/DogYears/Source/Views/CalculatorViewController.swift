@@ -74,6 +74,10 @@ class CalculatorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		// Get type buttons into array
+        lblOutput.accessibilityIdentifier = "result"
+        print("called viewdidplad")
+        print("---------------------------------------")
+        
 		for i in 100 ... 103 {
 			if let btn = view.viewWithTag(i) as? UIButton {
 				// Set initial type selection
